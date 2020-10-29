@@ -1,5 +1,5 @@
 <h1>Team Members</h1>
 
-<%= @users.each do |user| %>
-    <%= user.username %><br/>
+<% @users.each do |user| %>
+    <%= link_to user.username, user_path(user) %><br/>
 <% end %>
