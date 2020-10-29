@@ -1,0 +1,20 @@
+<%= form_for @project do |f| %>
+
+    <% if @project.errors.any? %>
+        <div id="error_explanation">
+        <% @project.errors.full_messages.each do |msg| %>
+            <%= msg %>
+        <% end %>
+        </div>
+    <% end %>
+
+    <div class="w3-container">  
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+    </div>
+
+    <div class="w3-container">
+        <%= f.submit "Submit" %>
+    </div>
+
+<% end %>
