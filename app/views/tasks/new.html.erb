@@ -20,7 +20,7 @@
 
     <div class="w3-container">  
         <%= f.label :status %>
-        <%= f.text_field :status %>
+        <%= f.select :status, Task::STATUS_TYPES.map {|status| status } %>
     </div>
 
     <div class="w3-container">

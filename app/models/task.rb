@@ -4,4 +4,8 @@ class Task < ApplicationRecord
   validates :name, presence: true
   validates :description, presence: true
   validates :status, presence: true
+  
+  STATUS_TYPES = ["Not Started", "In Progress", "Completed"]
+  
+
 end
