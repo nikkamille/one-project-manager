@@ -1,0 +1,30 @@
+<%= form_for @task do |f| %>
+
+    <% if @task.errors.any? %>
+        <div id="error_explanation">
+        <% @task.errors.full_messages.each do |msg| %>
+            <%= msg %>
+        <% end %>
+        </div>
+    <% end %>
+
+    <div class="w3-container">  
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+    </div>
+
+    <div class="w3-container">  
+        <%= f.label :description %>
+        <%= f.text_field :description %>
+    </div>
+
+    <div class="w3-container">  
+        <%= f.label :status %>
+        <%= f.text_field :status %>
+    </div>
+
+    <div class="w3-container">
+        <%= f.submit "Submit" %>
+    </div>
+
+<% end %>
