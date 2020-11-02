@@ -1,0 +1,45 @@
+<%= form_for @task do |f| %>
+
+    <% if @task.errors.any? %>
+        <div id="error_explanation">
+        <% @task.errors.full_messages.each do |msg| %>
+            <%= msg %><br/>
+        <% end %>
+        </div>
+    <% end %>
+
+    <div class="w3-container">
+        <%= f.label :project_title %>
+        <%= f.text_field :project_title, list: "projects_autocomplete" %>
+        <datalist id="projects_autocomplete">
+            <% Project.all.each do |project| %>
+                <option value="<%= project.title %>">
+            <% end %>
+        </datalist>
+    </div>
+
+    <div class="w3-container">  
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+    </div>
+
+    <div class="w3-container">  
+        <%= f.label :description %>
+        <%= f.text_area :description %>
+    </div>
+
+     <div class="w3-container">
+        <%= f.label "Assign To" %>
+        <%= f.collection_select :user_username, User.all, :username, :username %>
+    </div>
+
+    <div class="w3-container">  
+        <%= f.label :status %>
+        <%= f.select :status, Task::STATUS_TYPES.map {|status| status } %>
+    </div>
+
+    <div class="w3-container">
+        <%= f.submit "Submit" %>
+    </div>
+
+<% end %>

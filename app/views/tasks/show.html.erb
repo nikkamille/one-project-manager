@@ -7,4 +7,5 @@
 
 <%= @task.status %>
 
+<%= button_to "Edit", edit_task_path(@task), method: :get %>
 <%= button_to "Delete", task_path(@task), method: :delete %>
