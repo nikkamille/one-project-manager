@@ -1,3 +1,9 @@
 <h2><%= @project.title %></h2>
 
-<%= button_to "Delete", project_path(@project), method: :delete %>
+<ul>
+    <% Task.all.each do |task| %>
+        <li><%= link_to task.name, task_path(task) %></li>
+    <% end %>
+</ul>
+
+<%= button_to "Delete Project", project_path(@project), method: :delete %>
