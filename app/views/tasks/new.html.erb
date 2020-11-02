@@ -12,7 +12,7 @@
         <%= f.label :project_title %>
         <%= f.text_field :project_title, list: "projects_autocomplete" %>
         <datalist id="projects_autocomplete">
-            <%= Project.all.each do |project| %>
+            <% Project.all.each do |project| %>
                 <option value="<%= project.title %>">
             <% end %>
         </datalist>
@@ -26,6 +26,11 @@
     <div class="w3-container">  
         <%= f.label :description %>
         <%= f.text_area :description %>
+    </div>
+
+     <div class="w3-container">
+        <%= f.label "Assigned To" %>
+        <%= f.collection_select :user_username, User.all, :username, :username %>
     </div>
 
     <div class="w3-container">  
