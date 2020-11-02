@@ -15,6 +15,14 @@ class Task < ApplicationRecord
   def project_title
     self.project ? self.project.title : nil
   end
+
+  def user_username=(username)
+    self.user = User.find_by(username: username)
+  end
+
+  def user_username
+    self.user ? self.user.username : nil
+  end
   
 
 end
