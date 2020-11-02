@@ -3,10 +3,20 @@
     <% if @task.errors.any? %>
         <div id="error_explanation">
         <% @task.errors.full_messages.each do |msg| %>
-            <%= msg %>
+            <%= msg %><br/>
         <% end %>
         </div>
     <% end %>
+
+    <div class="w3-container">
+        <%= f.label :project_title %>
+        <%= f.text_field :project_title, list: "projects_autocomplete" %>
+        <datalist id="projects_autocomplete">
+            <%= Project.all.each do |project| %>
+                <option value="<%= project.title %>">
+            <% end %>
+        </datalist>
+    </div>
 
     <div class="w3-container">  
         <%= f.label :name %>
