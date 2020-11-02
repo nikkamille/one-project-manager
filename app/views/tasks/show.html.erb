@@ -1,5 +1,9 @@
-<h2><%= @task.name %></h2>
+<h2><%= @task.project_title %></h2>
+
+<h3><%= @task.name %></h3>
 <p><%= @task.description %></p><br/>
+
+<p>Assigned To: <%= @task.user_username %></p>
 
 <%= @task.status %>
 
