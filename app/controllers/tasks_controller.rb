@@ -12,12 +12,14 @@ class TasksController < ApplicationController
     end
 
     def new
-        @task = Task.new(user_id: params[:user_id])
-        # if params[:user_id] && !User.exists?(params[:author_id])
-        #     redirect_to users_path, alert: "Team member not found."
-        # else
-        #     @task = Task.new(user_id: params[:user_id])
-        # end
+        # @task = Task.new(user_id: params[:user_id])
+        if params[:user_id] && !User.exists?(params[:author_id])
+            redirect_to users_path, alert: "User not found."
+        elsif params[:user_id] && User.exists?(params[:author_id])
+            @task = Task.new(user_id: params[:user_id])
+        else
+            @task = Task.new
+        end
     end
 
     def create
@@ -32,6 +34,17 @@ class TasksController < ApplicationController
 
     def show
         @task = Task.find_by(id: params[:id])
+        # if params[:user_id]
+        #     @user = User.find_by(id: params[:id])
+        #     if @user.nil?
+        #         redirect_to users_path, alert: "User not found."
+        #     else
+        #         @task = User.tasks.find_by(id: params[:id])
+        #         redirect_to user_tasks_path(user), alert: "Task not found." if @task.nil?
+        #     end
+        # else
+        #     @task = Task.find_by(id: params[:id])
+        # end
     end
 
     def edit
@@ -58,7 +71,7 @@ class TasksController < ApplicationController
     private
 
     def task_params
-        params.require(:task).permit(:project_title, :name, :description, :user_username, :status)
+        params.require(:task).permit(:project_title, :name, :description, :user_username, :user_id, :status)
     end
 
 end

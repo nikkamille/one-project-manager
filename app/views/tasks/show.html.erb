@@ -7,5 +7,10 @@
 
 <div>Status: <%= @task.status %></div>
 
-<%= button_to "Edit", edit_task_path(@task), method: :get %>
-<%= button_to "Delete", task_path(@task), method: :delete %>
+<% if @task.user %>
+    <%= link_to "Edit Task", edit_user_task_path(@task.user, @task) %><br/>
+<% else %>
+    <%= link_to "Edit Task", edit_task_path(@task) %><br/>
+<% end %>
+
+<%= link_to "Delete", task_path(@task), method: :delete, data: { confirm: "Are you sure?" } %>
