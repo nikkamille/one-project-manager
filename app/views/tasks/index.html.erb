@@ -1,5 +1,13 @@
 <h2>Tasks</h2>
 
+<div>
+    <h3>Filter tasks:</h3>
+    <%= form_tag("/tasks", method: "get") do %>
+    <%= select_tag "user", options_from_collection_for_select(@users, "id", "username"), include_blank: true %>
+    <%= submit_tag "Filter" %>
+  <% end %>
+</div>
+
 <ul>
 <% @tasks.each do |task| %>
     <li><b><%= link_to task.name, task_path(task) %></b><br/>

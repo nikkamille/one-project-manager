@@ -24,5 +24,8 @@ class Task < ApplicationRecord
     self.user ? self.user.username : nil
   end
   
+  def self.by_user(user_id)
+    where(user: user_id)
+  end
 
 end
