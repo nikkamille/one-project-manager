@@ -2,6 +2,8 @@
 
 <ul>
 <% @tasks.each do |task| %>
-    <li><%= link_to task.name, task_path(task) %> - Assigned to: <%= link_to task.user_username, user_path(task.user) %></li>
+    <li><b><%= link_to task.name, task_path(task) %></b><br/>
+    Project Title: <%= link_to task.project_title, project_path(task.project) %><br/>
+    Assigned to: <%= link_to task.user_username, user_path(task.user) %></li>
 <% end %>
 </ul>

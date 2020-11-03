@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :projects
+  resources :projects do
+    resources :tasks, only: [:index, :show]
+  end
 
   resources :tasks
 
