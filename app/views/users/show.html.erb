@@ -10,6 +10,8 @@
             <%= link_to task.name, task_path(task) %>
         <% end %>
     <% end %>
+
+
 </div>
 
 <%= button_to "Delete Profile", user_path(@user), method: :delete, confirm: "Are you sure?" %>
