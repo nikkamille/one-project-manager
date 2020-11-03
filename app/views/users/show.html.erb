@@ -1,4 +1,15 @@
 <h1>Hi, <%= @user.username %>!</h1>
 
+<div>
+    <% if @user.tasks.blank? %>
+        <p>You don't have any tasks right now. Enjoy!</p>
+    <% else %>
+        <h4>Here are your tasks:</h4>
 
-<%= button_to "Delete Profile", user_path(@user), method: :delete %>
+        <% @user.tasks.each do |task| %>
+            <%= link_to task.name, task_path(task) %>
+        <% end %>
+    <% end %>
+</div>
+
+<%= button_to "Delete Profile", user_path(@user), method: :delete, confirm: "Are you sure?" %>

@@ -20,6 +20,7 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find_by(id: params[:id])
+        # @project = @user.tasks.find_by(id: params[:id]).project
     end
 
     def destroy

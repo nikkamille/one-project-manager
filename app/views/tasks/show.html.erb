@@ -5,7 +5,7 @@
 
 <p>Assigned To: <%= @task.user_username %></p>
 
-<%= @task.status %>
+<div>Status: <%= @task.status %></div>
 
 <%= button_to "Edit", edit_task_path(@task), method: :get %>
 <%= button_to "Delete", task_path(@task), method: :delete %>
