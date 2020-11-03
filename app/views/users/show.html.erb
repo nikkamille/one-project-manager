@@ -1,5 +1,7 @@
 <h1>Hi, <%= @user.username %>!</h1>
 
+<%= link_to "New Task", new_user_task_path(@user) %>
+
 <div>
     <% if @user.tasks.blank? %>
         <p>You don't have any tasks right now. Enjoy!</p>
@@ -7,7 +9,7 @@
         <h4>Here are your tasks:</h4>
 
         <% @user.tasks.each do |task| %>
-            <%= link_to task.name, task_path(task) %>
+            <%= link_to task.name, user_task_path(task.user, task) %><br/>
         <% end %>
     <% end %>
 

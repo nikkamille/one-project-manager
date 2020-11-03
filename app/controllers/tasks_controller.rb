@@ -12,7 +12,12 @@ class TasksController < ApplicationController
     end
 
     def new
-        @task = Task.new
+        @task = Task.new(user_id: params[:user_id])
+        # if params[:user_id] && !User.exists?(params[:author_id])
+        #     redirect_to users_path, alert: "Team member not found."
+        # else
+        #     @task = Task.new(user_id: params[:user_id])
+        # end
     end
 
     def create

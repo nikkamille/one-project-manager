@@ -9,7 +9,7 @@
     <% end %>
 
     <div class="w3-container">
-        <%= f.label :project_title %>
+        <%= f.label "Project Title: " %>
         <%= f.text_field :project_title, list: "projects_autocomplete" %>
         <datalist id="projects_autocomplete">
             <% Project.all.each do |project| %>
@@ -19,22 +19,22 @@
     </div>
 
     <div class="w3-container">  
-        <%= f.label :name %>
+        <%= f.label "Task Name: " %>
         <%= f.text_field :name %>
     </div>
 
     <div class="w3-container">  
-        <%= f.label :description %>
+        <%= f.label "Description: " %>
         <%= f.text_area :description %>
     </div>
 
      <div class="w3-container">
-        <%= f.label "Assign To" %>
-        <%= f.collection_select :user_username, User.all, :username, :username %>
+        <%= f.label "Assigned To: " %>
+        <%= user_id_field(@task) %>
     </div>
 
     <div class="w3-container">  
-        <%= f.label :status %>
+        <%= f.label "Status: " %>
         <%= f.select :status, Task::STATUS_TYPES.map {|status| status } %>
     </div>
 
