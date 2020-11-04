@@ -1,3 +1,5 @@
+<h2>Sign Up:</h2>
+
 <%= form_for @user do |f| %>
     
     <% if @user.errors.any? %>
@@ -14,22 +16,22 @@
         </div>
     <% end %>
     
-    <div class="w3-container">  
+    <div>  
         <%= f.label :username %>
         <%= f.text_field :username %>
     </div>
 
-    <div class="w3-container">
+    <div>
         <%= f.label :email %>
         <%= f.text_field :email %>
     </div>
 
-    <div class="w3-container">
+    <div>
         <%= f.label :password %>
         <%= f.password_field :password %>
     </div>
 
-    <div class="w3-container">
+    <div>
         <%= f.submit "Submit" %>
     </div>
 

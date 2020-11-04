@@ -1,16 +1,16 @@
-<h2><%= @task.project_title %></h2>
+<h1><%= link_to @task.project_title, project_path(@task.project) %></h1>
 
-<h3><%= @task.name %></h3>
+<h2><%= @task.name %></h2>
 <p><%= @task.description %></p><br/>
 
-<p>Assigned To: <%= @task.user_username %></p>
+<p>Assigned To: <%= link_to @task.user_username, user_path(@task.user) %></p>
 
 <div>Status: <%= @task.status %></div>
-
+<br/>
 <% if @task.user %>
     <%= link_to "Edit Task", edit_user_task_path(@task.user, @task) %><br/>
 <% else %>
     <%= link_to "Edit Task", edit_task_path(@task) %><br/>
 <% end %>
-
+<br/>
 <%= link_to "Delete", task_path(@task), method: :delete, data: { confirm: "Are you sure?" } %>

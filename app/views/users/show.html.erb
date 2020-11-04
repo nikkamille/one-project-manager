@@ -1,23 +1,17 @@
-<h1>Hi, <%= @user.username %>!</h1>
+<h1><%= @user.username %>'s Tasks</h1>
 
-<%= link_to "New Task", new_user_task_path(@user) %>
-
+<%= link_to "New Task", new_user_task_path(@user) %><br/>
+<br/>
 <div>
     <% if @user.tasks.blank? %>
         <p>You don't have any tasks right now. Enjoy!</p>
     <% else %>
-        <h4>Here are your tasks:</h4>
-
         <% @user.tasks.each do |task| %>
             <%= link_to task.name, user_task_path(task.user, task) %><br/>
         <% end %>
     <% end %>
 </div>
-
+<br/>
 <div>
-    <%= link_to "Log Out", logout_path, method: :delete %>
-</div>
-
-<div>
-    <%= button_to "Delete Profile", user_path(@user), method: :delete, confirm: "Are you sure?" %>
+    <%= link_to "Delete Profile", user_path(@user), method: :delete, data: { confirm: "Are you sure?" } %>
 </div>

@@ -8,7 +8,7 @@
         </div>
     <% end %>
 
-    <div class="w3-container">
+    <div>
         <%= f.label "Project Title: " %>
         <%= f.text_field :project_title, list: "projects_autocomplete" %>
         <datalist id="projects_autocomplete">
@@ -18,17 +18,17 @@
         </datalist>
     </div>
 
-    <div class="w3-container">  
+    <div>  
         <%= f.label "Task Name: " %>
         <%= f.text_field :name %>
     </div>
 
-    <div class="w3-container">  
+    <div>  
         <%= f.label "Description: " %>
         <%= f.text_area :description %>
     </div>
 
-     <div class="w3-container">
+     <div>
         <% if @task.user.nil? %>
             <%= f.label "Assign To: " %>
             <%= f.collection_select :user_username, User.all, :username, :username %>
@@ -38,12 +38,12 @@
         <% end %>
     </div>
 
-    <div class="w3-container">  
+    <div>  
         <%= f.label "Status: " %>
         <%= f.select :status, Task::STATUS_TYPES.map {|status| status } %>
     </div>
 
-    <div class="w3-container">
+    <div>
         <%= f.submit "Submit" %>
     </div>
 

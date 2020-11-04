@@ -1,3 +1,5 @@
+<h2>Log In:</h2>
+
 <% flash.each do |type, msg| %>
     <div>
         <%= msg %>
@@ -6,17 +8,17 @@
 
 <%= form_tag '/login' do %>
 
-    <div class="w3-container">
+    <div>
         <%= label_tag "Username: " %>
         <%= text_field_tag :username %>
     </div>
 
-    <div class="w3-container">
+    <div>
         <%= label_tag "Your Password: " %>
         <%= password_field_tag :password %>
     </div>
 
-    <div class="w3-container">
+    <div>
         <%= submit_tag "Log in" %>
     </div>
 

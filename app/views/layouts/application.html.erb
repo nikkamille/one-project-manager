@@ -15,23 +15,23 @@
         <div class="navbar-header">
         <a class="navbar-brand" href="http://localhost:3000/home">One Project Manager</a>
         <% if !current_user %>
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="http://localhost:3000/home">Home</a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="http://localhost:3000/users/new"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            <li><a href="http://localhost:3000/login"><span class="glyphicon glyphicon-log-in"></span> Log In</a></li>
-            <li><a href="http://localhost:3000/auth/facebook"><span class="fa fa-facebook"></span> Log in with Facebook</a></li>
-          </ul>
+          <a class="nav navbar-nav">
+            <a class="active"><a href="http://localhost:3000/home">Home</a>
+          <div class="nav navbar-nav navbar-right">
+            <a href="http://localhost:3000/users/new"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+            <a href="http://localhost:3000/login"><span class="glyphicon glyphicon-log-in"></span> Log In</a>
+            <a href="http://localhost:3000/auth/facebook"><span class="fa fa-facebook"></span> Log in with Facebook</a>
+          </div>
         <% end %>
         <% if current_user %>
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="http://localhost:3000/home">Home</a></li>
-            <li><a href="http://localhost:3000/users">Profile</a></li>
-            <li><a href="http://localhost:3000/users">Users</a></li>
-            <li><a href="http://localhost:3000/projects">Projects</a></li>
-            <li><a href="http://localhost:3000/tasks">Tasks</a></li>
-          </ul>
+          <div class="nav navbar-nav">
+            <a class="active"><a href="http://localhost:3000/home">Home</a>
+            <%= link_to "Profile", user_path(current_user) %>
+            <a href="http://localhost:3000/users">Users</a>
+            <a href="http://localhost:3000/projects">Projects</a>
+            <a href="http://localhost:3000/tasks">Tasks</a>
+            <%= link_to "Log Out", logout_path, method: :delete %>
+          </div>
         <% end %>
         </div>
       </div>

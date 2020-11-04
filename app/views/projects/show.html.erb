@@ -1,4 +1,4 @@
-<h2><%= @project.title %></h2>
+<h1><%= @project.title %></h1>
 
 <ul>
     <% @project.tasks.each do |task| %>
@@ -6,6 +6,6 @@
     <% end %>
 </ul>
 
-
-<%= button_to "Edit Project", edit_project_path(@project), method: :get %>
-<%= button_to "Delete Project", project_path(@project), method: :delete %>
+<br/>
+<%= link_to "Edit Project", edit_project_path(@project), method: :get %><br/>
+<%= link_to "Delete Project", project_path(@project), method: :delete, data: { confirm: "Are you sure?" } %>
