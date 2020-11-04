@@ -1,24 +1,35 @@
-# README
+# One Project Manager
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+One Project Manager is a web application for managing tasks and projects with team members. You can create tasks and projects and assign them to your team.
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+To install One Practice Manager, go to github and clone the [One Practice Manager repository](https://github.com/nikkamille/one-project-manager.)
 
-* System dependencies
+On your terminal, run the following commands:
 
-* Configuration
+```bash
+git clone git@github.com:nikkamille/one-project-manager.git
+```
 
-* Database creation
+Then run bundle install to install all of the required gems.
 
-* Database initialization
+```bash
+bundle install
+```
 
-* How to run the test suite
+Once all the required gems are installed, start Rails server.
 
-* Services (job queues, cache servers, search engines, etc.)
+```bash
+rails s
+```
 
-* Deployment instructions
+Then on your browser, type in the address bar http://localhost:3000/home.
 
-* ...
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+## License
+
+This is available as open source under the terms of the [MIT](https://opensource.org/licenses/MIT) License.
