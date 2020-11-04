@@ -4,6 +4,6 @@ class User < ApplicationRecord
     validates :email, presence: true, uniqueness: true
     validates :password, presence: true
     validates :password_confirmation, presence: true
-    has_many :tasks
+    has_many :tasks, dependent: :destroy
     has_many :projects, through: :tasks
 end
