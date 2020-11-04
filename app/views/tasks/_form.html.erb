@@ -29,8 +29,13 @@
     </div>
 
      <div class="w3-container">
-        <%= f.label "Assigned To: " %>
-        <%= user_id_field(@task) %>
+        <% if @task.user.nil? %>
+            <%= f.label "Assign To: " %>
+            <%= f.collection_select :user_username, User.all, :username, :username %>
+        <% else %>
+            <%= f.hidden_field :user_id %>
+            <%= f.label "Assign To: #{@task.user_username}" %>
+        <% end %>
     </div>
 
     <div class="w3-container">  

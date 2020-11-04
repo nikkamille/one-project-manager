@@ -13,12 +13,10 @@ class TasksController < ApplicationController
 
     def new
         # @task = Task.new(user_id: params[:user_id])
-        if params[:user_id] && !User.exists?(params[:author_id])
+        if params[:user_id] && !User.exists?(params[:user_id])
             redirect_to users_path, alert: "User not found."
-        elsif params[:user_id] && User.exists?(params[:author_id])
+          else
             @task = Task.new(user_id: params[:user_id])
-        else
-            @task = Task.new
         end
     end
 
@@ -33,18 +31,12 @@ class TasksController < ApplicationController
     end
 
     def show
-        @task = Task.find_by(id: params[:id])
-        # if params[:user_id]
-        #     @user = User.find_by(id: params[:id])
-        #     if @user.nil?
-        #         redirect_to users_path, alert: "User not found."
-        #     else
-        #         @task = User.tasks.find_by(id: params[:id])
-        #         redirect_to user_tasks_path(user), alert: "Task not found." if @task.nil?
-        #     end
-        # else
-        #     @task = Task.find_by(id: params[:id])
-        # end
+        # @task = Task.find_by(id: params[:id])
+        if params[:user_id]
+            @task = User.find(params[:user_id]).tasks.find(params[:id])
+          else
+            @task = Task.find(params[:id])
+        end
     end
 
     def edit
