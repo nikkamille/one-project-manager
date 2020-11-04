@@ -1,5 +1,13 @@
+<% flash.each do |type, msg| %>
+    <div>
+        <%= msg %>
+    </div>
+<% end %>
+
 <h1>Team Members</h1>
 
 <% @users.each do |user| %>
-    <%= link_to user.username, user_path(user) %><br/>
+    <div>
+        <%= link_to user.username, user_path(user) %><br/>
+    </div>
 <% end %>

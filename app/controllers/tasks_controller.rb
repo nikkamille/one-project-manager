@@ -40,7 +40,18 @@ class TasksController < ApplicationController
     end
 
     def edit
-        @task = Task.find_by(id: params[:id])
+        # @task = Task.find_by(id: params[:id])
+        if params[:user_id]
+            @user = User.find_by(id: params[:user_id])
+            if @user.nil?
+              redirect_to users_path, alert: "User not found."
+            else
+              @task = @user.tasks.find_by(id: params[:id])
+              redirect_to user_tasks_path(@user), alert: "Task not found." if @task.nil?
+            end
+        else
+            @post = Post.find(params[:id])
+        end
     end
 
     def update
