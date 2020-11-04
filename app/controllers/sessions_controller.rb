@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
     
-    skip_before_action :require_login, only: [:home, :new, :create]
+    skip_before_action :verified_user, only: [:home, :new, :create]
     
     def home
     end

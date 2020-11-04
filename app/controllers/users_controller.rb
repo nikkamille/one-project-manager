@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-    skip_before_action :require_login, only: [:new, :create]
+    skip_before_action :verified_user, only: [:new, :create]
 
     def index
         @users = User.all
@@ -23,7 +23,6 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find_by(id: params[:id])
-        # @project = @user.tasks.find_by(id: params[:id]).project
     end
 
     def destroy
