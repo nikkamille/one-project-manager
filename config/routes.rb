@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   get 'home', to: 'sessions#home'
   delete 'logout', to: 'sessions#destroy'
+  match '/auth/facebook/callback', to: 'sessions#create', via: [:get, :post]
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
