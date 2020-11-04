@@ -12,8 +12,12 @@
             <%= link_to task.name, user_task_path(task.user, task) %><br/>
         <% end %>
     <% end %>
-
-
 </div>
 
-<%= button_to "Delete Profile", user_path(@user), method: :delete, confirm: "Are you sure?" %>
+<div>
+    <%= link_to "Log Out", logout_path, method: :delete %>
+</div>
+
+<div>
+    <%= button_to "Delete Profile", user_path(@user), method: :delete, confirm: "Are you sure?" %>
+</div>

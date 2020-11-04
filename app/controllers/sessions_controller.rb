@@ -1,4 +1,10 @@
 class SessionsController < ApplicationController
+    
+    skip_before_action :require_login, only: [:home, :new, :create]
+    
+    def home
+    end
+
     def new
         @user = User.new
     end

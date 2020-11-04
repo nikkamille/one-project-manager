@@ -12,7 +12,6 @@ class TasksController < ApplicationController
     end
 
     def new
-        # @task = Task.new(user_id: params[:user_id])
         if params[:user_id] && !User.exists?(params[:user_id])
             redirect_to users_path, alert: "User not found."
           else
@@ -31,7 +30,6 @@ class TasksController < ApplicationController
     end
 
     def show
-        # @task = Task.find_by(id: params[:id])
         if params[:user_id]
             @task = User.find(params[:user_id]).tasks.find(params[:id])
           else
@@ -40,7 +38,6 @@ class TasksController < ApplicationController
     end
 
     def edit
-        # @task = Task.find_by(id: params[:id])
         if params[:user_id]
             @user = User.find_by(id: params[:user_id])
             if @user.nil?
@@ -63,18 +60,15 @@ class TasksController < ApplicationController
         end
     end
 
-
     def destroy
         @task = Task.find(params[:id]).destroy
         redirect_to tasks_path
     end
-
-
 
     private
 
     def task_params
         params.require(:task).permit(:project_title, :name, :description, :user_username, :user_id, :status)
     end
-
+    
 end
