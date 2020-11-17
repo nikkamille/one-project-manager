@@ -7,11 +7,20 @@
 <h1>Tasks</h1>
 
 <div>
-    <h3>Filter tasks:</h3>
+    <h3>Filter tasks by name:</h3>
     <%= form_tag("/tasks", method: "get") do %>
-    <%= select_tag "user", options_from_collection_for_select(@users, "id", "username"), include_blank: true %>
-    <%= submit_tag "Filter" %>
-  <% end %>
+        <%= select_tag "user", options_from_collection_for_select(@users, "id", "username"), include_blank: true %>
+        <%= submit_tag "Filter" %>
+    <% end %>
+
+    <! -- Filtering by project is a feature added during the live coding in the assessment; I couldn't figure out how to make this work. -->
+
+    <h3>Filter tasks by project:</h3>
+    <%= form_tag("/tasks", method: "get") do %>
+        <%= select_tag "project", options_from_collection_for_select(@projects, "id", "title"), include_blank: true %>
+        <%= submit_tag "Filter" %>
+    <% end %>
+
 </div>
 <br/>
 <%= link_to "New Task", new_task_path %><br/>

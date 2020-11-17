@@ -3,6 +3,7 @@ class TasksController < ApplicationController
     def index
 
         @users = User.all
+        @projects = Project.all
 
         if !params[:user].blank?
             @tasks = Task.by_user(params[:user])
